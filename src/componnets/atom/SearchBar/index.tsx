@@ -20,11 +20,11 @@ const SearchBar: React.FC<searchbarProp> = () => {
         type="search"
         placeholder="Search"
         onChange={(e) => getSearchDebounce(e.target.value)}
-        className="peer cursor-pointer relative z-10 h-10 w-28 rounded-3xl border bg-transparent duration-300 pl-12 outline-none focus:w-full focus:cursor-text focus:border-dark focus:pl-16 focus:pr-4"
+        className="peer cursor-pointer relative z-10 h-10 w-28 rounded-3xl border bg-transparent duration-300 pl-12 outline-none focus:w-full focus:cursor-text focus:border-white focus:pl-16 focus:pr-4"
       />
       <AiOutlineSearch
-        color="#000"
-        className="absolute inset-y-0 my-auto h-8 w-12 border-r border-transparent stroke-gray-500 px-3.5 peer-focus:border-dark peer-focus:stroke-dark"
+        color="#fff"
+        className="absolute inset-y-0 my-auto h-8 w-12 border-r border-transparent stroke-gray-500 px-3.5 peer-focus:border-white peer-focus:stroke-white"
       />
     </form>
   );

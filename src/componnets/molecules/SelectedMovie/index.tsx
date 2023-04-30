@@ -34,14 +34,13 @@ const SelectedMovie: React.FC<SelectedMovieProp> = ({ children }) => {
             <img
               src={`${API_IMG}${singleMovie?.backdrop_path}`}
               alt=""
-              width={250}
-              height={250}
               className="rounded-2xl mb-5"
             />
             <Carousel
               carouselData={similar}
               header="Similar Movies"
-              className="h-300px"
+              height="h-250px"
+              containerHeight="h-[13rem]"
             />
           </div>
           {/* Right-side of the page */}
