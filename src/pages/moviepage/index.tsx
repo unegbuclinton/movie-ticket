@@ -5,6 +5,7 @@ import TvCarousel from "@/componnets/molecules/TvCarousel";
 import { RootState } from "@/store";
 import { useAppSelector } from "@/utils/hooks";
 import { useEffect, useState } from "react";
+import RingLoader from "react-spinners/RingLoader";
 
 const MoviesPage = () => {
   const { nowPlaying, topRated, tvSeries, rating } = useAppSelector(
@@ -28,6 +29,11 @@ const MoviesPage = () => {
             <Carousel carouselData={topRated} header="Popular Movies" />
             <TvCarousel carouselData={tvSeries} header="Popular Tv series" />
             <Carousel carouselData={rating} header="Rated Movies" />
+          </div>
+        )}
+        {!delay && (
+          <div className="w-[97%] h-screen flex items-center justify-center md:w-[75%]">
+            <RingLoader />
           </div>
         )}
       </div>
