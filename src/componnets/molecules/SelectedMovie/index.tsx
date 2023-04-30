@@ -11,7 +11,7 @@ const SelectedMovie: React.FC<SelectedMovieProp> = ({ children }) => {
   const { singleMovie } = useAppSelector(
     (state: RootState) => state.singlemovie
   );
-  const { rating } = useAppSelector((state: RootState) => state.movie);
+  const { similar } = useAppSelector((state: RootState) => state.movie);
   const API_IMG = "https://image.tmdb.org/t/p/w500/";
   const router = useRouter();
   return (
@@ -39,9 +39,9 @@ const SelectedMovie: React.FC<SelectedMovieProp> = ({ children }) => {
               className="rounded-2xl mb-5"
             />
             <Carousel
-              carouselData={rating}
+              carouselData={similar}
               header="Similar Movies"
-              className="h-200px"
+              className="h-300px"
             />
           </div>
           {/* Right-side of the page */}

@@ -6,6 +6,7 @@ import { getMovieById } from "@/utils/redux/SingleMovie";
 import { useAppDispatch } from "@/utils/hooks";
 import { useRouter } from "next/navigation";
 import ClientOnly from "@/utils/helperFunctions";
+import { similarMovies } from "@/utils/redux/MovieSlice";
 
 const Carousel: React.FC<carouselProp> = ({
   header,
@@ -49,6 +50,7 @@ const Carousel: React.FC<carouselProp> = ({
             ) => (
               <CarouselImageCard
                 onClick={() => {
+                  dispatch(similarMovies(id));
                   dispatch(getMovieById(id)).then(() =>
                     router.push("/movieoverview")
                   );

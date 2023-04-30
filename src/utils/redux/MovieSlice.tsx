@@ -5,6 +5,7 @@ interface UsersState {
   nowPlaying: Array<any>;
   topRated: Array<any>;
   tvSeries: Array<any>;
+  similar: Array<any>;
   rating: Array<any>;
   isLoading: boolean;
 }
@@ -64,10 +65,25 @@ export const searchMovie = createAsyncThunk(
     }
   }
 );
+export const similarMovies = createAsyncThunk(
+  "home/similarMovies",
+  async (id: number) => {
+    try {
+      const response = await axios({
+        method: "get",
+        url: `https://api.themoviedb.org/3/movie/${id}/similar?api_key=${apiKey}&language=en-US&page=1`,
+      });
+      return response?.data?.results;
+    } catch (error) {
+      console.log(error);
+    }
+  }
+);
 const initialState = {
   nowPlaying: [],
   tvSeries: [],
   topRated: [],
+  similar: [],
   rating: [],
   isLoading: false,
 } as UsersState;
@@ -117,6 +133,16 @@ export const movieSlice = createSlice({
       state.isLoading = false;
     });
     builder.addCase(tvMovies.pending, (state) => {
+      state.isLoading = true;
+    });
+    builder.addCase(similarMovies.fulfilled, (state, action) => {
+      state.similar = action.payload;
+      state.isLoading = false;
+    });
+    builder.addCase(similarMovies.rejected, (state) => {
+      state.isLoading = false;
+    });
+    builder.addCase(similarMovies.pending, (state) => {
       state.isLoading = true;
     });
   },

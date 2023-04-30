@@ -23,7 +23,7 @@ const MoviesPage = () => {
         <div className="hidden md:block w-[25%] px-3 ">
           <Sidebar />
         </div>
-        {delay && (
+        {nowPlaying.length > 1 && (
           <div className="w-[97%] md:w-[75%] overflow-auto">
             <Carousel carouselData={nowPlaying} header="For You" />
             <Carousel carouselData={topRated} header="Popular Movies" />
@@ -31,11 +31,12 @@ const MoviesPage = () => {
             <Carousel carouselData={rating} header="Rated Movies" />
           </div>
         )}
-        {!delay && (
-          <div className="w-[97%] h-screen flex items-center justify-center md:w-[75%]">
-            <RingLoader />
-          </div>
-        )}
+        {nowPlaying.length < 1 ||
+          (undefined && (
+            <div className="w-[97%] h-screen flex items-center justify-center md:w-[75%]">
+              <RingLoader />
+            </div>
+          ))}
       </div>
     </main>
   );
