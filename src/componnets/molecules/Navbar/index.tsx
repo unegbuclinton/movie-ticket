@@ -14,7 +14,10 @@ const Navbar = () => {
         </div>
       </div>
       <MobileMenu open={fold} />
-      <div className="z-20 mr-3" onClick={() => setFold((prev) => !prev)}>
+      <div
+        className="z-20 mr-3 lg:hidden"
+        onClick={() => setFold((prev) => !prev)}
+      >
         {fold && (
           <AiOutlineMenuUnfold
             size={25}

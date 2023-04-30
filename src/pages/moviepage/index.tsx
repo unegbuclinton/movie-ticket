@@ -11,11 +11,7 @@ const MoviesPage = () => {
   const { nowPlaying, topRated, tvSeries, rating } = useAppSelector(
     (state: RootState) => state.movie
   );
-  const [delay, setDelay] = useState<boolean>(false);
-  useEffect(() => {
-    const timer = setTimeout(() => setDelay(true), 3000);
-    return () => clearTimeout(timer);
-  }, []);
+
   return (
     <main className="h-screen overflow-hidden">
       <Navbar />
