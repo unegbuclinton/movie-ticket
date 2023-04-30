@@ -9,6 +9,7 @@ export default function Home() {
     dispatch(playingMovie());
     dispatch(tvMovies());
     dispatch(topMovie());
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   return (
     <>

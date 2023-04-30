@@ -1,4 +1,3 @@
-import { useRouter } from "next/navigation";
 import React from "react";
 
 interface carouselImgProp {
@@ -22,6 +21,8 @@ const CarouselImageCard: React.FC<carouselImgProp> = ({
       <img
         src={`${API_IMG}${imgUrl}`}
         alt="image"
+        width={150}
+        height={150}
         className="h-full object-cover rounded-t-xl "
       />
       <div>

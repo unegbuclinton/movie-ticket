@@ -15,6 +15,7 @@ const PaymentMethod = () => {
         <>
           {testCard.map(({ card }, idx) => (
             <CardPayment
+              key={idx}
               cardtype={card}
               onClick={() => setActive(idx)}
               active={active === idx}
